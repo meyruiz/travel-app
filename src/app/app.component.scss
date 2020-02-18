@@ -1,0 +1,28 @@
+// .header { grid-area: header; }
+// app-blog-post { grid-area: menu; }
+
+// .parent {
+//     display:grid;
+//     grid-template-areas:
+//     'header header header header header header'
+//     'menu menu menu menu menu menu';
+//     grid-gap: 10px;
+//     padding: 10px;
+// }
+
+.header {
+    text-align: center;
+    
+    .banner {
+        display: inline-block;
+        position: relative;
+        padding: 8px 16px;
+        font-size: 18px;
+        color: coral;
+    }
+
+    h1 {
+        font-size: 45px;
+        font-weight: 700;
+    }
+}

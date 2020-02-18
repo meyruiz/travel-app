@@ -1,0 +1,31 @@
+.mat-fab {
+    position: fixed;
+    top: 145px;
+    right: 20px;
+    z-index: 1;
+}
+
+#posts-list {
+    display: flex;
+    flex-flow: row wrap;
+
+    .post-container {
+        width: 50%;
+        height: 300px;
+
+        app-post {
+            color:white;
+            font-weight: bold;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            height: 360px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .post-container {
+            width: 100%;
+        }
+    }
+}
