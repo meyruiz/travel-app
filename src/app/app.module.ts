@@ -10,6 +10,7 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCategoryPipe } from './filter-category.pipe';
+import { PostDetailComponent } from './blog-post/post-detail/post-detail.component';
 
 const MaterialComponents = [MatButtonModule, MatButtonToggleModule, MatIconModule];
 
@@ -19,7 +20,9 @@ const MaterialComponents = [MatButtonModule, MatButtonToggleModule, MatIconModul
     BlogPostComponent,
     CategoriesComponent,
     PostComponent,
-    FilterCategoryPipe
+    PostDetailComponent,
+    FilterCategoryPipe,
+    PostDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,9 +1,11 @@
 <app-categories (sendCategory)='displayCategory($event)'></app-categories>
-<button (click)="showDialog()" mat-fab class="mat-fab mat-accent">
-    <mat-icon>edit</mat-icon>
-</button>
-<div id="posts-list">
+
+<app-post-detail></app-post-detail>
+<!-- <div id="posts-list">
+    <button (click)="showDialog()" mat-fab class="mat-fab mat-accent">
+        <mat-icon>edit</mat-icon>
+    </button>
     <div *ngFor="let post of posts | filterCategory: selectedCategory" class="post-container">
         <app-post [post]="post"></app-post>
     </div>
-</div>
+</div> -->
