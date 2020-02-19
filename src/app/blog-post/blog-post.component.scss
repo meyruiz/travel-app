@@ -1,13 +1,13 @@
-.mat-fab {
-    position: fixed;
-    top: 145px;
-    right: 20px;
-    z-index: 1;
-}
-
 #posts-list {
     display: flex;
     flex-flow: row wrap;
+
+    .mat-fab {
+        position: fixed;
+        top: 145px;
+        right: 20px;
+        z-index: 1;
+    }
 
     .post-container {
         width: 50%;
@@ -15,7 +15,6 @@
 
         app-post {
             color:white;
-            font-weight: bold;
             text-align: center;
             overflow: hidden;
             position: relative;
