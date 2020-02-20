@@ -1,5 +1,12 @@
 <div class="post-detail">
     <div class="hero-banner" [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
+        <a [routerLink]="['/home']" class="mat-stroked-button">
+            <span class="mat-button-wrapper">
+                <mat-icon>chevron_left</mat-icon>
+                <span _ngcontent-flx-c7=""> View Posts </span>
+            </span>
+        </a>
+        
         <h2 class="title">{{ post.title }}</h2>
     </div>
     <div class="description-container">
@@ -21,11 +28,11 @@
             </div>
         </div>
 
-        <form class="comment-form">
-            <p>Write a comment</p>
-            <input>
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+            <label for="comment">Comment</label>
+            <textarea type="text" name="comment" formControlName="comment"></textarea>
+            <button type="submit" class="btn mat-primary">Add</button>
         </form>
-        <button type="submit">Add</button>
     </div>
 
 </div>

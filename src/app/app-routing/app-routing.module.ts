@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: BlogPostComponent },
-  { path: 'detail', component: PostDetailComponent },
+  { path: 'post/:id', component: PostDetailComponent },
   // { path: 'feature1', loadChildren: './feature1/feature1.module#Feature1Module' },
   // { path: 'feature2', loadChildren: './feature2/feature2.module#Feature2Module' },
   // { path: 'feature3', loadChildren: './feature3/feature3.module#Feature3Module' },

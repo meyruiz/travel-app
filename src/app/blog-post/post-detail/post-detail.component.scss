@@ -20,9 +20,21 @@
         color: #fff;
         position: relative;
 
+        .mat-stroked-button {
+            position: absolute;
+            margin-left: 2rem;
+            font-size: 1.1rem;
+            top: 20px;
+            left: 10px;
+
+            mat-icon {
+                vertical-align: middle;
+            }
+        }
+
         .title {
             color: #fff;
-            font-size: 6.4rem;
+            font-size: 3.4rem;
         }
     }
 

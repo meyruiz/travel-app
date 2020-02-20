@@ -1,5 +1,5 @@
 <div class="image-bg" [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
-    <a>
+    <a [routerLink]="['/post',post.id]" routerLinkActive="active">
         <div class="post-content">
             <h2 class="title"> {{ post.title }} </h2>
             <p class="comments">{{ post.comments }} comments

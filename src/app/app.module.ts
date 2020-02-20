@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCategoryPipe } from './filter-category.pipe';
 import { PostDetailComponent } from './blog-post/post-detail/post-detail.component';
 import { AppRoutingModule } from '../app/app-routing/app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const MaterialComponents = [MatButtonModule, MatButtonToggleModule, MatIconModule];
 
@@ -29,7 +30,8 @@ const MaterialComponents = [MatButtonModule, MatButtonToggleModule, MatIconModul
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    MaterialComponents
+    MaterialComponents,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
