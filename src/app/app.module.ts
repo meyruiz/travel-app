@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterCategoryPipe } from './filter-category.pipe';
 import { PostDetailComponent } from './blog-post/post-detail/post-detail.component';
+import { AppRoutingModule } from '../app/app-routing/app-routing.module';
 
 const MaterialComponents = [MatButtonModule, MatButtonToggleModule, MatIconModule];
 
@@ -25,6 +26,7 @@ const MaterialComponents = [MatButtonModule, MatButtonToggleModule, MatIconModul
     PostDetailComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     MaterialComponents
