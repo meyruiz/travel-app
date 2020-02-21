@@ -14,4 +14,12 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  editPost($event) {
+    console.log('edit');
+  }
+
+  erasePost($event) {
+    console.log('erase');
+  }
 }
