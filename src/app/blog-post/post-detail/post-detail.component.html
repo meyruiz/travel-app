@@ -30,8 +30,12 @@
 
         <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
             <label for="comment">Comment</label>
-            <textarea type="text" name="comment" formControlName="comment"></textarea>
-            <button type="submit" class="btn mat-primary">Add</button>
+            <div class="mat-form-field-infix">
+                <textarea type="text" name="comment" formControlName="comment"></textarea>
+            </div>
+            <button type="submit" class="btn mat-primary">
+                <span class="mat-button-wrapper">Add</span>
+            </button>
         </form>
     </div>
 

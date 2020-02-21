@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Post } from '../../post.model';
 import { Comment } from '../../comment.model';
 import { PostService } from '../../post.service';
 import { CommentService } from '../../comment.service';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post-detail',
@@ -15,18 +15,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PostDetailComponent implements OnInit, OnDestroy {
 
   post: Post;
-  comments: Comment[];
+  comments: Comment[] = [];
   sub: any;
   idPost: number
 
-  // public commentForm = new FormGroup({
-  //   idPost: new FormControl(),
-  //   comment: new FormControl(),
-  //   author: new FormControl(),
-  // });
-
   public commentForm = this.fb.group({
-      idPost: null,
       comment: ''
   });
 
@@ -40,11 +33,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         .subscribe(comments => this.comments = comments);
   }
 
-  addComment(comment: Comment): void {
-    this._commentService.addComment(comment);
-  }
-
-  constructor(private router: Router, private route: ActivatedRoute, private _postService: PostService, private _commentService: CommentService, private fb: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private _postService: PostService, private _commentService: CommentService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
@@ -54,7 +43,6 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     });
 
     this.commentForm.setValue({
-      idPost: null,
       comment: ''
     });
   }
@@ -66,15 +54,10 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   onSubmit() {
     let comment = new Comment();
 
-    comment.id = 3;
     comment.idPost = this.idPost;
     comment.author = "Jean Dow";
-    comment.comment = 'hey';
+    comment.comment = this.commentForm.value.comment;
 
-    this.addComment(comment);
-  }
-
-  goBack() {
-    this.router.navigate(['/home']);
+    this._commentService.addComment({...comment});
   }
 }
