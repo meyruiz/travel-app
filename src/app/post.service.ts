@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 export class PostService {
 
   posts: Post[] = [{
-    id: 1,
+    id: 0,
     title: "At the beach in winter",
     comments: 0,
     image: "https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072__340.jpg",
@@ -17,7 +17,7 @@ export class PostService {
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est turpis. Sed lectus purus, viverra eget libero sit amet, condimentum eleifend arcu. Proin finibus interdum eros, nec luctus nisi maximus sagittis. Nunc pulvinar odio vel accumsan aliquam. Etiam at lacinia ligula. Donec porttitor nec ex non maximus.",
     publishedAt: "01/17/20"
   }, {
-    id: 2,
+    id: 1,
     title: "At the beach in winter",
     comments: 3,
     image: "https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072__340.jpg",
@@ -26,7 +26,7 @@ export class PostService {
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est turpis. Sed lectus purus, viverra eget libero sit amet, condimentum eleifend arcu. Proin finibus interdum eros, nec luctus nisi maximus sagittis. Nunc pulvinar odio vel accumsan aliquam. Etiam at lacinia ligula. Donec porttitor nec ex non maximus.",
     publishedAt: "01/17/20"
   }, {
-    id: 3,
+    id: 2,
     title: "At the beach in winter",
     comments: 1,
     image: "https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072__340.jpg",
@@ -44,6 +44,16 @@ export class PostService {
   }
 
   getPostById(id: number): Observable<Post> {
+    return of(this.posts[id]);
+  }
+
+  editPostById(post: Post): Observable<Post> {
+    let id = post.id;
+    this.posts[id].title = post.title;
+    this.posts[id].image = post.image;
+    this.posts[id].category = post.category;
+    this.posts[id].shortDescription = post.shortDescription;
+
     return of(this.posts[id]);
   }
 }

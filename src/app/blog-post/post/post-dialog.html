@@ -1,0 +1,37 @@
+
+<h1 mat-dialog-title>Edit Post</h1>
+
+<form [formGroup]="editPostForm" (ngSubmit)="onSubmit()">
+    <label for="title">Title</label>
+    <div>
+        <input type="text" name="title" formControlName="title" value="{{data.title}}">
+    </div>
+
+    <label for="shortDescription">Description</label>
+    <div>
+        <input type="text" name="shortDescription" 
+            formControlName="shortDescription" value="{{data.shortDescription}}">
+    </div>
+
+    <label for="category">Category</label>
+    <div>
+        <select name="category" formControlName="category" value="{{data.category}}">
+            <option>Select option:</option>
+            <option value="Travel">Travel</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Business">Business</option>
+            <option value="Food">Food</option>
+            <option value="Work">Work</option>
+        </select>
+    </div>
+
+    <label for="image">URL of the image</label>
+    <div>
+        <input type="text" name="image" formControlName="image" value="{{data.image}}">
+    </div>
+    <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button type="submit" class="btn mat-primary">Edit</button>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+    </div>
+</form>
