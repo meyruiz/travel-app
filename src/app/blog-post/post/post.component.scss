@@ -4,6 +4,7 @@
     box-shadow: 0 0 0 1000px rgba(0,0,0,.2) inset;
     transition: all 350ms ease-in-out;
     height: 100%;
+    position: relative;
 
     .post-content {
          bottom: 0;
@@ -49,7 +50,7 @@
      .post-actions {
          position: absolute;
          right: 20px;
-         top: 12rem;
+         bottom: 30px;
          color: #fff;
      }
 }

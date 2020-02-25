@@ -1,5 +1,5 @@
 
-<h1 mat-dialog-title>Edit Post</h1>
+<h1 mat-dialog-title>{{dialogTitle}} </h1>
 
 <form [formGroup]="editPostForm" (ngSubmit)="onSubmit()">
     <label for="title">Title</label>
@@ -31,7 +31,7 @@
     </div>
     <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button type="submit" class="btn mat-primary">Edit</button>
+    <button mat-button type="submit" class="btn mat-primary">OK</button>
     <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
     </div>
 </form>

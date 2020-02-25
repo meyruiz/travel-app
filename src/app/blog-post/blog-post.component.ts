@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../app/post.service';
 import { Post } from '../post.model';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PostDialog } from './post/post.component';
 
 @Component({
   selector: 'app-blog-post',
@@ -14,7 +16,7 @@ export class BlogPostComponent implements OnInit {
 
   selectedCategory : string = 'all';
   
-  constructor(private _postService: PostService) { }
+  constructor(public dialog: MatDialog, private _postService: PostService) { }
 
   getPosts(): void {
     this._postService.getPosts()
@@ -22,7 +24,10 @@ export class BlogPostComponent implements OnInit {
   }
 
   showDialog() {
-    console.log("Show dialog");
+    this.dialog.open(PostDialog, {
+      width: '550px',
+      data: ''
+    });
   }
 
   displayCategory(value: string) {

@@ -20,10 +20,6 @@ export class PostComponent implements OnInit {
       width: '550px',
       data: this.post
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
   }
 
   ngOnInit(): void {
@@ -33,9 +29,7 @@ export class PostComponent implements OnInit {
     this.openDialog();
   }
 
-  erasePost(id) {
-    console.log(id);
-
+  erasePost(id: number) {
     this._postService.erasePost(id);
   }
 }
@@ -52,12 +46,14 @@ export class PostDialog {
     @Inject(MAT_DIALOG_DATA) public data: Post,
     private fb: FormBuilder, private _postService: PostService) {}
 
-    public editPostForm = this.fb.group({
-      title: this.data.title,
-      image: this.data.image,
-      category: this.data.category,
-      shortDescription: this.data.shortDescription
-    });
+  public editPostForm = this.fb.group({
+    title: this.data.title,
+    image: this.data.image,
+    category: this.data.category,
+    shortDescription: this.data.shortDescription
+  });
+
+  public dialogTitle = this.data? "Edit Post" : "Add Post";
 
   editPostById(post: Post): void {
     this._postService.editPostById(post)
@@ -67,13 +63,18 @@ export class PostDialog {
   onSubmit(): void {
     let post = new Post();
 
-    post.id = this.data.id;
     post.title = this.editPostForm.value.title;
     post.image = this.editPostForm.value.image;
     post.category = this.editPostForm.value.category;
     post.shortDescription = this.editPostForm.value.shortDescription;
 
-    this._postService.editPostById(post);
+    if(this.data.id) {
+      post.id = this.data.id;
+      this._postService.editPostById(post);
+    } else {
+      this._postService.addNewPost(post);
+    }
+
     this.dialogRef.close();
   }
 

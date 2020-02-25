@@ -47,6 +47,14 @@ export class PostService {
     return of(this.posts[id]);
   }
 
+  addNewPost(post: Post): Observable<Post[]> {
+    console.log("add new post");
+    post.id = 3;
+    this.posts.push(post);
+
+    return of(this.posts);
+  }
+
   editPostById(post: Post): Observable<Post> {
     let id = post.id;
     this.posts[id].title = post.title;
@@ -65,8 +73,6 @@ export class PostService {
         this.posts.splice(index, 1);
       }
     });
-
-    console.log(this.posts);
 
     return of(this.posts);
   }
