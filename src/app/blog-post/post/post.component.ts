@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
 
   @Input() post: Post;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private _postService: PostService) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PostDialog, {
@@ -21,23 +21,22 @@ export class PostComponent implements OnInit {
       data: this.post
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
   }
 
   ngOnInit(): void {
   }
 
-  editPost($event) {
-    console.log('edit');
-
+  editPost() {
     this.openDialog();
   }
 
-  erasePost($event) {
-    console.log('erase');
+  erasePost(id) {
+    console.log(id);
+
+    this._postService.erasePost(id);
   }
 }
 
@@ -60,7 +59,7 @@ export class PostDialog {
       shortDescription: this.data.shortDescription
     });
 
-    editPostById(post: Post): void {
+  editPostById(post: Post): void {
     this._postService.editPostById(post)
         .subscribe(post => this.data = post);
   }

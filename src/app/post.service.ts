@@ -56,4 +56,18 @@ export class PostService {
 
     return of(this.posts[id]);
   }
+
+  erasePost(id: number): Observable<Post[]> {
+    console.log("erase post");
+
+    this.posts.forEach((post, index) => {
+      if (post.id === id) {
+        this.posts.splice(index, 1);
+      }
+    });
+
+    console.log(this.posts);
+
+    return of(this.posts);
+  }
 }

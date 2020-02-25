@@ -10,12 +10,12 @@
         </div>
     </a>
     <div class="post-actions">
-        <button class="mat-icon-button" (click)="editPost($event)">
+        <button class="mat-icon-button" (click)="editPost()">
             <span class="mat-button-wrapper">
                 <mat-icon class="mat-icon notranslate material-icons mat-icon-no-color">edit</mat-icon>
             </span>
         </button>
-        <button class="mat-icon-button" (click)="erasePost($event)">
+        <button class="mat-icon-button" (click)="erasePost(post.id)">
             <span class="mat-button-wrapper">
                 <mat-icon class="mat-icon notranslate material-icons mat-icon-no-color">delete</mat-icon>
             </span>
