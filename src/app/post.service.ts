@@ -7,6 +7,8 @@ import { Observable, of } from 'rxjs';
 })
 export class PostService {
 
+  private idCounter = 3;
+
   posts: Post[] = [{
     id: 0,
     title: "At the beach in winter",
@@ -48,9 +50,11 @@ export class PostService {
   }
 
   addNewPost(post: Post): Observable<Post[]> {
-    console.log("add new post");
-    post.id = 3;
+    post.id = this.idCounter;
+    post.comments = 0;
     this.posts.push(post);
+
+    this.idCounter++;
 
     return of(this.posts);
   }
@@ -66,14 +70,22 @@ export class PostService {
   }
 
   erasePost(id: number): Observable<Post[]> {
-    console.log("erase post");
-
     this.posts.forEach((post, index) => {
       if (post.id === id) {
         this.posts.splice(index, 1);
       }
     });
 
+    return of(this.posts);
+  }
+
+  addComment(id: number): Observable<Post[]> {
+    this.posts.forEach((post, index) => {
+      if (post.id === id) {
+        this.posts[index].comments++;
+      }
+    });
+    
     return of(this.posts);
   }
 }

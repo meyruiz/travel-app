@@ -62,6 +62,7 @@ export class PostDialog {
 
   onSubmit(): void {
     let post = new Post();
+    console.log("submit");
 
     post.title = this.editPostForm.value.title;
     post.image = this.editPostForm.value.image;

@@ -1,7 +1,7 @@
 
 <h1 mat-dialog-title>{{dialogTitle}} </h1>
 
-<form [formGroup]="editPostForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="editPostForm" (ngSubmit)="onSubmit()" id="editPostForm">
     <label for="title">Title</label>
     <div>
         <input type="text" name="title" formControlName="title" value="{{data.title}}">
@@ -30,8 +30,8 @@
         <input type="text" name="image" formControlName="image" value="{{data.image}}">
     </div>
     <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button type="submit" class="btn mat-primary">OK</button>
     <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
     </div>
 </form>
+<button mat-button (click)="onNoClick()">Cancel</button>
+<button mat-button type="submit" form="editPostForm" class="btn mat-primary">OK</button>
