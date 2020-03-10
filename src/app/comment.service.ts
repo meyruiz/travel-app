@@ -25,9 +25,11 @@ export class CommentService {
     return of(this.comments.filter(comment => comment.idPost === id));
   }
 
-  addComment(comment: Comment): void {
+  addComment(comment: Comment): Observable<Comment[]>  {
     this.comments.push(comment);
-    this.getCommentsById(comment.idPost);
     this._postService.addComment(comment.idPost);
+    this.getCommentsById(comment.idPost);
+
+    return of(this.comments);
   }
 }

@@ -33,6 +33,11 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         .subscribe(comments => this.comments = comments);
   }
 
+  addComment(comment: Comment): void {
+    this._commentService.addComment(comment)
+        .subscribe(comments => this.comments = comments);
+  }
+
   constructor(private route: ActivatedRoute, private _postService: PostService, private _commentService: CommentService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -58,6 +63,6 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     comment.author = "Jean Dow";
     comment.comment = this.commentForm.value.comment;
 
-    this._commentService.addComment({...comment});
+    this.addComment({...comment});
   }
 }
